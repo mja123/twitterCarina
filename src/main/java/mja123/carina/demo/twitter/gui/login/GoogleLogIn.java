@@ -22,7 +22,7 @@ public class GoogleLogIn extends AbstractLoginPage {
     private ExtendedWebElement emailInput;
     @FindBy(xpath = "//input[@type='password']")
     private ExtendedWebElement passwordInput;
-    @FindBy(xpath = "//span[text()=('Siguiente')]")
+    @FindBy(xpath = "//span[text()=('Next')]")
     private ExtendedWebElement nextButton;
 
     public GoogleLogIn(WebDriver driver) {

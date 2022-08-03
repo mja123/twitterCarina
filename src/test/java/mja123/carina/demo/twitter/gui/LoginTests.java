@@ -2,26 +2,21 @@ package mja123.carina.demo.twitter.gui;
 
 import com.qaprosoft.carina.core.foundation.IAbstractTest;
 import mja123.carina.demo.twitter.gui.login.CredentialsLogin;
+import mja123.carina.demo.twitter.gui.login.ELoginPage;
 import mja123.carina.demo.twitter.gui.login.GoogleLogIn;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
+import mja123.carina.demo.twitter.gui.login.WelcomePage;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
-import java.time.Duration;
 import java.util.Properties;
-import java.util.concurrent.TimeUnit;
 
 
 public class LoginTests implements IAbstractTest {
 
-    private  WelcomePage welcomePage;
+    private WelcomePage welcomePage;
     private Properties properties;
     private String email;
     private String password;
@@ -58,6 +53,6 @@ public class LoginTests implements IAbstractTest {
         HomePage homePage = login.logIn(email, username, password);
 
         Assert.assertNotNull((homePage));
-        
+
     }
 }

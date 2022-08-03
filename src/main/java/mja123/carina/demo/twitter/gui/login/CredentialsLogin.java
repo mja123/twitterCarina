@@ -10,7 +10,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 public class CredentialsLogin extends AbstractLoginPage {
     @FindBy(xpath = "//input[@autocomplete='username']")
     private ExtendedWebElement emailnput;
-    @FindBy(xpath = "//span[text()='Siguiente']/../../..")
+    @FindBy(xpath = "//span[text()='Next']/../../..")
     private ExtendedWebElement nextButton;
     @FindBy(xpath = "//input[@autocomplete='current-password']")
     private ExtendedWebElement passwordInput;
