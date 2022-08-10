@@ -29,13 +29,14 @@ public abstract class AbstractLoginPage extends MyAbstractPage {
 
     //When Twitter sends the unusual login's page
     protected void sendUsername(String username) {
-
-        if (waitVisibility(validationPopup)) {
-            waitVisibility(usernameInput);
+        /*waitVisibility(validationPopup);
+        waitVisibility(usernameInput);*/
+        if (validationPopup.isElementPresent()) {
+            LOGGER.info(username);
             usernameInput.type(username);
-
             usernameNextButton.click();
         }
+
     }
 
      protected abstract HomePage logIn(String email, String username, String password);

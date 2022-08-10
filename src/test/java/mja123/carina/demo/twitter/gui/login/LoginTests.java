@@ -1,11 +1,13 @@
-package mja123.carina.demo.twitter.gui;
+package mja123.carina.demo.twitter.gui.login;
 
 import com.qaprosoft.carina.core.foundation.IAbstractTest;
+import mja123.carina.demo.twitter.gui.HomePage;
 import mja123.carina.demo.twitter.gui.login.CredentialsLogin;
 import mja123.carina.demo.twitter.gui.login.ELoginPage;
 import mja123.carina.demo.twitter.gui.login.GoogleLogIn;
 import mja123.carina.demo.twitter.gui.login.WelcomePage;
 import org.testng.Assert;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
@@ -22,7 +24,7 @@ public class LoginTests implements IAbstractTest {
     private String password;
     private String username;
 
-    @BeforeMethod
+    @BeforeClass
     public void setUp() throws IOException {
         welcomePage = new WelcomePage(getDriver());
         welcomePage.open();

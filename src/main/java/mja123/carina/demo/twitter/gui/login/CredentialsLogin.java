@@ -25,15 +25,15 @@ public class CredentialsLogin extends AbstractLoginPage {
     public HomePage logIn(String email, String username, String password) {
         LOGGER.info("Logging with credentials");
 
-        waitVisibility(emailnput);
         LOGGER.info("Typing username");
-        emailnput.type(email, 3000L);
+        emailnput.type(email);
         nextButton.click();
+
 
         sendUsername(username);
 
         LOGGER.info("Typing password");
-        waitVisibility(passwordInput);
+        //waitVisibility(passwordInput);
         passwordInput.type(password, 3000L);
         loginButton.click();
 

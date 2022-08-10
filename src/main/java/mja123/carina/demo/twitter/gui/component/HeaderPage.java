@@ -11,7 +11,7 @@ import org.slf4j.LoggerFactory;
 
 import java.lang.invoke.MethodHandles;
 
-public class HeaderPage extends MyAbstractUIObject {
+public class HeaderPage extends AbstractUIObject implements ITweet {
     private static final Logger LOGGER = LoggerFactory.getLogger(MethodHandles.lookup().lookupClass());
     @FindBy(xpath = "//a[@href='/notifications']")
     private ExtendedWebElement notification;
@@ -25,8 +25,6 @@ public class HeaderPage extends MyAbstractUIObject {
     private ExtendedWebElement profile;
     @FindBy(xpath = "//div[@aria-label='Account menu']")
     private ExtendedWebElement accountMenu;
-    //This is the xpath to write tweets, not to touch it
-    //@FindBy(xpath = "//div[@aria-labelledby='modal-header']//div[@aria-label='Tweet text']")
     @FindBy(xpath = "//a[@href='/compose/tweet']")
     private ExtendedWebElement tweet;
 
@@ -58,4 +56,16 @@ public class HeaderPage extends MyAbstractUIObject {
         accountMenu.click();
     }
 
+    public void postTweetHeaderPage(String content) {
+        tweet.click();
+        postTweet(content);
+    }
 }
+
+/*TODO:
+- Solve this issue:
+    Implement appropriate AbstractUIObject constructor for auto-initialization!
+- Create a suite for tweets
+
+ */
+
