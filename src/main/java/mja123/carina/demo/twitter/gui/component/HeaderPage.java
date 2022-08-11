@@ -1,17 +1,18 @@
 package mja123.carina.demo.twitter.gui.component;
 
 import com.qaprosoft.carina.core.foundation.webdriver.decorator.ExtendedWebElement;
-import com.qaprosoft.carina.core.gui.AbstractUIObject;
 import mja123.carina.demo.twitter.gui.*;
+import org.openqa.selenium.By;
 import org.openqa.selenium.SearchContext;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.lang.invoke.MethodHandles;
 
-public class HeaderPage extends AbstractUIObject implements ITweet {
+public class HeaderPage extends MyAbstractUIObject {
     private static final Logger LOGGER = LoggerFactory.getLogger(MethodHandles.lookup().lookupClass());
     @FindBy(xpath = "//a[@href='/notifications']")
     private ExtendedWebElement notification;
@@ -26,7 +27,12 @@ public class HeaderPage extends AbstractUIObject implements ITweet {
     @FindBy(xpath = "//div[@aria-label='Account menu']")
     private ExtendedWebElement accountMenu;
     @FindBy(xpath = "//a[@href='/compose/tweet']")
-    private ExtendedWebElement tweet;
+    private ExtendedWebElement displayTweet;
+    @FindBy(xpath = "//div[@aria-label='Tweet text']")
+    private ExtendedWebElement inputTweet;
+    @FindBy(xpath = "//div[@data-testid='tweetButtonInline']")
+    private ExtendedWebElement buttonTweet;
+
 
     public HeaderPage(WebDriver driver, SearchContext searchContext) {
         super(driver, searchContext);
@@ -56,16 +62,11 @@ public class HeaderPage extends AbstractUIObject implements ITweet {
         accountMenu.click();
     }
 
-    public void postTweetHeaderPage(String content) {
-        tweet.click();
-        postTweet(content);
+    public void postTweetFromHeader(String content) {
+       displayTweet.click();
+       inputTweet.type(content);
+       buttonTweet.click();
     }
 }
 
-/*TODO:
-- Solve this issue:
-    Implement appropriate AbstractUIObject constructor for auto-initialization!
-- Create a suite for tweets
-
- */
 

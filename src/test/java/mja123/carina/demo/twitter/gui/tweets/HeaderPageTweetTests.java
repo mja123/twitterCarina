@@ -16,7 +16,8 @@ public class HeaderPageTweetTests implements IAbstractTest {
     public void postAValidTweet() throws IOException {
         HomePage homePage = new LoginWithCredentials().loginCredentials();
         HeaderPage headerPage = homePage.getHeader();
-        headerPage.postTweetHeaderPage(LocalTime.now().toString());
+
+        headerPage.postTweetFromHeader(LocalTime.now().toString());
         assertTrue(getDriver().getPageSource().contains("Your Tweet was sent."));
     }
 }
